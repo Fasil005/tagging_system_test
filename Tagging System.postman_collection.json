@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "15b69d5e-b130-4c07-9283-043a38c454b9",
+		"name": "Tagging System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create A Post - Admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Nothing",
+							"type": "default"
+						},
+						{
+							"key": "uploader",
+							"value": "1",
+							"type": "default"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Fasil K/Downloads/1647783720813.jpg"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Fasil K/Downloads/output-onlinepngtools.png"
+						},
+						{
+							"key": "description",
+							"value": "Nothing to Type",
+							"type": "default"
+						},
+						{
+							"key": "tags",
+							"value": "Nothing",
+							"type": "default"
+						},
+						{
+							"key": "tags",
+							"value": "Nothing to do",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/posts/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"posts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Posts - User",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8000/posts/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"posts",
+						"1"
+					]
+				},
+				"description": "User ID is the number passing in URL"
+			},
+			"response": []
+		},
+		{
+			"name": "Like The Post - User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"like\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/posts/1?post_id=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"posts",
+						"1"
+					],
+					"query": [
+						{
+							"key": "post_id",
+							"value": "2"
+						}
+					]
+				},
+				"description": "Pass Like true to like posts and false to unlike posts and the number in URL is user id."
+			},
+			"response": []
+		},
+		{
+			"name": "Liked Users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"like\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/posts/1?post_id=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"posts",
+						"1"
+					],
+					"query": [
+						{
+							"key": "post_id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
